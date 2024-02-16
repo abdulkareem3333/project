@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worksheet: Past, Present, and Future Tenses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .worksheet {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .exercise {
+            margin-bottom: 20px;
+        }
+        .instruction {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .correct-answer {
+            display: none;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="worksheet">
+        <h1>Worksheet: Past, Present, and Future Tenses</h1>
+        
+        <div class="exercise">
+            <h2>Part 1: Fill in the blanks with the correct form of the verb in brackets.</h2>
+            <div class="instruction">1. Yesterday, I <input type="text" id="q1" placeholder="verb" /> (play) football with my friends. <span class="correct-answer">(played)</span></div>
+            <div class="instruction">2. Sarah usually <input type="text" id="q2" placeholder="verb" /> (read) a book before she goes to bed. <span class="correct-answer">(reads)</span></div>
+            <div class="instruction">3. We <input type="text" id="q3" placeholder="verb" /> (watch) a movie right now. <span class="correct-answer">(are watching)</span></div>
+            <div class="instruction">4. They <input type="text" id="q4" placeholder="verb" /> (talk) about their holiday plans. <span class="correct-answer">(were talking)</span></div>
+            <div class="instruction">5. By this time next year, I <input type="text" id="q5" placeholder="verb" /> (graduate) from college. <span class="correct-answer">(will graduate)</span></div>
+            <div class="instruction">6. The children <input type="text" id="q6" placeholder="verb" /> (swim) in the pool at this time yesterday. <span class="correct-answer">(were swimming)</span></div>
+            <div class="instruction">7. He <input type="text" id="q7" placeholder="verb" /> (cook) dinner when I called him. <span class="correct-answer">(was cooking)</span></div>
+            <div class="instruction">8. Next weekend, they <input type="text" id="q8" placeholder="verb" /> (visit) their grandparents. <span class="correct-answer">(will visit)</span></div>
+        </div>
+        
+        <!-- Include other exercise parts -->
+        
+        <div id="result"></div>
+        
+        <button onclick="showAnswers()">Show Answers & Calculate Score</button>
+    </div>
+
+    <script>
+        function showAnswers() {
+            // Display correct answers
+            const correctAnswers = document.getElementsByClassName("correct-answer");
+            for (let i = 0; i < correctAnswers.length; i++) {
+                correctAnswers[i].style.display = "inline";
+            }
+
+            let score = 0;
+            let totalQuestions = 0;
+
+            // Check answers for Part 1
+            const answers1 = ["played", "reads", "are watching", "were talking", "will graduate", "were swimming", "was cooking", "will visit"];
+            for (let i = 1; i <= answers1.length; i++) {
+                const userAnswer = document.getElementById("q" + i).value.trim().toLowerCase();
+                const correctAnswer = answers1[i - 1];
+
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+                totalQuestions++;
+            }
+
+            // Include checks for other exercise parts
+
+            // Display result
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerText = `You scored ${score} out of ${totalQuestions} questions.`;
+        }
+    </script>
+</body>
+</html>
